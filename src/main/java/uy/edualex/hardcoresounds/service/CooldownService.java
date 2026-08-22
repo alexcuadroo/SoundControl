@@ -1,26 +1,27 @@
 package uy.edualex.hardcoresounds.service;
 
-import java.time.Clock;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
+import java.util.function.LongSupplier;
 
 public final class CooldownService {
-    private final Clock clock;
+    private final LongSupplier timeSource;
     private final Map<UUID, Long> senderUses = new HashMap<>();
     private long globalUse = Long.MIN_VALUE;
 
     public CooldownService() {
-        this(Clock.systemUTC());
+        this(() -> TimeUnit.NANOSECONDS.toMillis(System.nanoTime()));
     }
 
-    CooldownService(Clock clock) {
-        this.clock = clock;
+    CooldownService(LongSupplier timeSource) {
+        this.timeSource = timeSource;
     }
 
     public synchronized long tryAcquire(UUID sender, boolean enabled, long senderMillis, long globalMillis) {
         if (!enabled) return 0;
-        long now = clock.millis();
+        long now = timeSource.getAsLong();
         long senderRemaining = remaining(now, senderUses.getOrDefault(sender, Long.MIN_VALUE), senderMillis);
         long globalRemaining = remaining(now, globalUse, globalMillis);
         long remaining = Math.max(senderRemaining, globalRemaining);

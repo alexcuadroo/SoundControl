@@ -8,7 +8,7 @@ Plugin para Paper 26.1.2 y 26.2 que reproduce sonidos personalizados incluidos e
 .\gradlew.bat clean test build
 ```
 
-El JAR queda en `build/libs/HardcoreSounds-1.0.0-SNAPSHOT.jar`.
+El JAR queda en `build/libs/HardcoreSounds-1.0.1.jar`.
 
 ## Añadir y publicar los sonidos
 

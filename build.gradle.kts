@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "uy.edualex"
-version = "1.0.0-SNAPSHOT"
+version = "1.0.1"
 val pluginVersion = version.toString()
 
 repositories {
@@ -34,7 +34,7 @@ tasks.test {
 }
 
 tasks.withType<JavaCompile>().configureEach {
-    options.compilerArgs.add("-Xlint:deprecation")
+    options.compilerArgs.addAll(listOf("-Xlint:all", "-Werror"))
 }
 
 tasks.jar {

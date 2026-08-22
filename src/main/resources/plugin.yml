@@ -1,0 +1,29 @@
+name: HardcoreSounds
+version: '${version}'
+main: uy.edualex.hardcoresounds.HardcoreSoundsPlugin
+api-version: '26.1'
+author: Alex
+description: Server-controlled custom sounds delivered through Minecraft resource packs.
+
+permissions:
+  hardcoresounds.use:
+    default: op
+  hardcoresounds.play:
+    default: op
+  hardcoresounds.play.others:
+    default: op
+  hardcoresounds.play.all:
+    default: op
+  hardcoresounds.stop:
+    default: op
+  hardcoresounds.reload:
+    default: op
+  hardcoresounds.admin:
+    default: op
+    children:
+      hardcoresounds.use: true
+      hardcoresounds.play: true
+      hardcoresounds.play.others: true
+      hardcoresounds.play.all: true
+      hardcoresounds.stop: true
+      hardcoresounds.reload: true

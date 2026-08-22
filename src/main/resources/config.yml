@@ -1,0 +1,23 @@
+resource-pack:
+  enabled: false
+  required: true
+  prompt: "<gold>Este servidor utiliza sonidos personalizados.</gold> <gray>Debes aceptar el paquete para escucharlos.</gray>"
+  profiles:
+    "26":
+      "1":
+        url: ""
+        sha1: ""
+        uuid: ""
+      "2":
+        url: ""
+        sha1: ""
+        uuid: ""
+
+general:
+  notify-sender: true
+  gui-enabled: true
+
+limits:
+  enabled: true
+  per-sender-cooldown-ms: 500
+  global-cooldown-ms: 250
